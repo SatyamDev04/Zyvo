@@ -144,9 +144,7 @@ extension AddToWishListPopUpVC {
                         print(self.getWishlistArr,"getWishlistArr")
                         
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                            //  self.updateCollectionViewHeight()
                             self.collecV.reloadData()
-                           
                         }
                     }
                 })

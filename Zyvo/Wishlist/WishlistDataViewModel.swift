@@ -41,11 +41,9 @@ class WishlistDataViewModel:NSObject {
 }
 
 extension WishlistDataViewModel {
-    
     func apiForGetCreatedWishList(){
         var para = [String:Any]()
         para[APIKeys.userID] = UserDetail.shared.getUserId()
-       
         APIServices<[WishlistDataModel]>().post(endpoint: .get_wishlist, parameters: para,loader: true)
             .receive(on: DispatchQueue.main)
             .sink { complition in

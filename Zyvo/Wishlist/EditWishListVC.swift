@@ -112,7 +112,7 @@ extension EditWishListVC :UICollectionViewDelegate,UICollectionViewDataSource {
 //                        mainTabVC.progressBar?.isHidden = false
 //                    }
 //                }
-                
+            vc.propertyDistanceInMiles = "\(data?.location_in_miles ?? "")"
                 vc.propertyID = "\(data?.propertyID ?? 0)"
                 self.navigationController?.pushViewController(vc, animated: true)
             //}

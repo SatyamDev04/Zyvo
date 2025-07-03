@@ -67,7 +67,7 @@ class FilterVC: UIViewController, UITextFieldDelegate, GMSAutocompleteFetcherDel
     @IBOutlet weak var txt_NumberofPeople: UITextField!
     @IBOutlet weak var txt_numberofbedroom: UITextField!
     @IBOutlet weak var txt_numberofbathroom: UITextField!
-
+    
     
     @IBOutlet weak var txt_PropertyType: UITextField!
     @IBOutlet var bedroomsBtnColl: [UIButton]!
@@ -78,14 +78,14 @@ class FilterVC: UIViewController, UITextFieldDelegate, GMSAutocompleteFetcherDel
     var prevSelNo_PplBtn: UIButton?
     var prevSelBedroomBtn: UIButton?
     var prevSelBathroomButton: UIButton?
-  
+    
     
     let months = [
         "January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"
     ]
     let Times = ["1 hour","2 hours","3 hours","4 hours","5 hours","6 hours","7 hours","8 hours","9 hours","10 hours","11 hours","12 hours"]
     
-    var arrActivityImg = ["home 1","staricon 1","cameraicon 1","handicon"]
+    var arrActivityImg = ["home 2","staricon 1","cameraicon 1","handicon"]
     
     var arrActivityTitle = ["Stays","Event Space","Photo shoot","Meeting"]
     // Declare this as a class-level property
@@ -108,27 +108,27 @@ class FilterVC: UIViewController, UITextFieldDelegate, GMSAutocompleteFetcherDel
     let timeDropdown = DropDown()
     let dropDownLocation = DropDown()
     
-     var allowsPets: String = "0"
-     var selfCheckIn: String = "0"
-     var activities: String = ""
-     var amenities: String = ""
-     var instantbooking: String = "0"
-     var bathroom: String = ""
-     var bedroom: String = ""
-     var propertysize: String = ""
-     var parkingSize: String = ""
-     var peoplecount: String = ""
-     var timess: Int = 0
-     var datess: String = ""
-     var locationss: String = ""
-     var maximumprice: String = ""
-     var minimumprice: String = ""
-     var placetype: String = ""
+    var allowsPets: String = "0"
+    var selfCheckIn: String = "0"
+    var activities: String = ""
+    var amenities: String = ""
+    var instantbooking: String = "0"
+    var bathroom: String = ""
+    var bedroom: String = ""
+    var propertysize: String = ""
+    var parkingSize: String = ""
+    var peoplecount: String = ""
+    var timess: Int = 0
+    var datess: String = ""
+    var locationss: String = ""
+    var maximumprice: String = ""
+    var minimumprice: String = ""
+    var placetype: String = ""
     private var viewModelRange = RangeSliderViewModel()
     private var viewModel = HomeDataFilterViewModel()
     private var cancellables = Set<AnyCancellable>()
     
-   var getFilterDataArr : [HomeDataModel]?
+    var getFilterDataArr : [HomeDataModel]?
     
     var FilterStatus = ""
     
@@ -136,55 +136,55 @@ class FilterVC: UIViewController, UITextFieldDelegate, GMSAutocompleteFetcherDel
     
     var fetcher: GMSAutocompleteFetcher!
     var predictions = [GMSAutocompletePrediction]()
-     
+    
     private var minValue: Double = 20
-        private var maxValue: Double = 80
+    private var maxValue: Double = 80
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let barData: [Double] = [2, 8, 10, 30, 50, 70, 50, 30, 40, 60, 20, 10, 30, 50, 80, 90, 70, 60, 40, 70, 50, 30, 70, 60, 20, 2]
         
-                let range: ClosedRange<Double> = 0...100
-
-                let sliderView = RangeSliderContainer(
-                    viewModel: viewModelRange,
-                    barData: barData,
-                    range: range
-                )
-
+        let range: ClosedRange<Double> = 0...100
+        
+        let sliderView = RangeSliderContainer(
+            viewModel: viewModelRange,
+            barData: barData,
+            range: range
+        )
+        
         let hostingController = UIHostingController(rootView: sliderView)
         addChild(hostingController)
-
+        
         hostingController.view.translatesAutoresizingMaskIntoConstraints = false
         view_Graph.addSubview(hostingController.view)
-
+        
         NSLayoutConstraint.activate([
             hostingController.view.leadingAnchor.constraint(equalTo: view_Graph.leadingAnchor),
             hostingController.view.trailingAnchor.constraint(equalTo: view_Graph.trailingAnchor),
             hostingController.view.topAnchor.constraint(equalTo: view_Graph.topAnchor),
             hostingController.view.bottomAnchor.constraint(equalTo: view_Graph.bottomAnchor)
         ])
-
+        
         hostingController.didMove(toParent: self)
         
         viewModel.apiforMinMaxRange()
-
+        
         viewModelRange.$minValue
-                    .receive(on: DispatchQueue.main)
-                    .sink { [weak self] min in
-                        self?.txt_min.text = "\(Int(min))"
-                    }
-                    .store(in: &cancellables)
-
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] min in
+                self?.txt_min.text = "\(Int(min))"
+            }
+            .store(in: &cancellables)
+        
         viewModelRange.$maxValue
-                    .receive(on: DispatchQueue.main)
-                    .sink { [weak self] max in
-                        self?.txt_max.text = "\(Int(max))"
-                    }
-                    .store(in: &cancellables)
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] max in
+                self?.txt_max.text = "\(Int(max))"
+            }
+            .store(in: &cancellables)
         view_Graph.backgroundColor = .red
-//        rangeSeeker.delegate = self
+        //        rangeSeeker.delegate = self
         bindVC()
         let timeValue = FilterSavedData.shared.timess
         print("Timess Value: \(timeValue)")
@@ -221,13 +221,13 @@ class FilterVC: UIViewController, UITextFieldDelegate, GMSAutocompleteFetcherDel
         } else {
             
         }
-    
+        
         self.selfCheckIn = FilterSavedData.shared.selfCheckIn
         
         if  self.selfCheckIn == "1" {
-        
-        btnSelfCheckIn.setImage(UIImage(named: "selecticon"), for: .normal)
-        
+            
+            btnSelfCheckIn.setImage(UIImage(named: "selecticon"), for: .normal)
+            
         } else {
             
             btnSelfCheckIn.setImage(UIImage(named: "Deselecticon"), for: .normal)
@@ -237,9 +237,9 @@ class FilterVC: UIViewController, UITextFieldDelegate, GMSAutocompleteFetcherDel
         self.instantbooking = FilterSavedData.shared.instantbooking
         
         if  self.instantbooking == "1" {
-        
-        btnAllowInstantBooking.setImage(UIImage(named: "selecticon"), for: .normal)
-        
+            
+            btnAllowInstantBooking.setImage(UIImage(named: "selecticon"), for: .normal)
+            
         } else {
             
             btnAllowInstantBooking.setImage(UIImage(named: "Deselecticon"), for: .normal)
@@ -248,15 +248,15 @@ class FilterVC: UIViewController, UITextFieldDelegate, GMSAutocompleteFetcherDel
         self.allowsPets = FilterSavedData.shared.allowsPets
         
         if  self.allowsPets == "1" {
-        
-        btnallowPets.setImage(UIImage(named: "selecticon"), for: .normal)
-        
+            
+            btnallowPets.setImage(UIImage(named: "selecticon"), for: .normal)
+            
         } else {
             
             btnallowPets.setImage(UIImage(named: "Deselecticon"), for: .normal)
         }
         
-      //  self.placetype = "any"
+        //  self.placetype = "any"
         let rangeSeekerMinValue = FilterSavedData.shared.minimumprice
         let rangeSeekerMaxValue = FilterSavedData.shared.maximumprice
         print(rangeSeekerMinValue,rangeSeekerMaxValue,"rangeSeekerMinValue,rangeSeekerMaxValue")
@@ -268,12 +268,12 @@ class FilterVC: UIViewController, UITextFieldDelegate, GMSAutocompleteFetcherDel
             self.txt_min.text = "$0"
         }
         if rangeSeekerMaxValue !=  "" {
-       rangeSeeker.selectedMaxValue = CGFloat(Float(Int(rangeSeekerMaxValue) ?? 0))
+            rangeSeeker.selectedMaxValue = CGFloat(Float(Int(rangeSeekerMaxValue) ?? 0))
             self.txt_max.text = ("$\(rangeSeekerMaxValue)")
         } else {
             self.txt_max.text = "$100"
         }
-
+        
         let locations = FilterSavedData.shared.locationss
         if locations != "" {
             self.txt_location.text = locations
@@ -283,7 +283,7 @@ class FilterVC: UIViewController, UITextFieldDelegate, GMSAutocompleteFetcherDel
         if datess != "" {
             self.txtDate.text = datess
         }
-      
+        
         let placeType = FilterSavedData.shared.placetype
         print("placeType Value: \(placeType)")
         if placeType == "any" {
@@ -313,12 +313,12 @@ class FilterVC: UIViewController, UITextFieldDelegate, GMSAutocompleteFetcherDel
         }
         
         // Initialize Google Autocomplete Fetcher
-               let filter = GMSAutocompleteFilter()
-               filter.type = .noFilter // You can change this to .address, .establishment, etc.
-               
-               fetcher = GMSAutocompleteFetcher(filter: filter)
-               fetcher.delegate = self
-                self.txt_location.delegate = self
+        let filter = GMSAutocompleteFilter()
+        filter.type = .noFilter // You can change this to .address, .establishment, etc.
+        
+        fetcher = GMSAutocompleteFetcher(filter: filter)
+        fetcher.delegate = self
+        self.txt_location.delegate = self
         self.txt_min.delegate = self
         self.txt_max.delegate = self
         self.txt_NumberofPeople.delegate = self
@@ -404,21 +404,21 @@ class FilterVC: UIViewController, UITextFieldDelegate, GMSAutocompleteFetcherDel
         print("peopleBtn Value: \(peopleBtn)")
         if Int(peopleBtn) != 0 {
             let thirdButton = NoPeopleBtnColl[Int(peopleBtn) ?? 0]
-               thirdButton.backgroundColor = .white
+            thirdButton.backgroundColor = .white
             prevSelNo_PplBtn = thirdButton } else {
                 if let firstButton = NoPeopleBtnColl.first {
                     firstButton.backgroundColor = .white
                     prevSelNo_PplBtn = firstButton } }
-
+        
         
         let propertysize = FilterSavedData.shared.propertysize
         print("propertysize Value: \(propertysize)")
-
+        
         // Reset all button backgrounds to clear
         for button in buttonCollection {
             button.backgroundColor = .clear
         }
-
+        
         // Convert to Int safely
         if let propertyIndex = Int(propertysize), propertyIndex == 250 {
             if buttonCollection.count > 1 { // Ensure at least 2 buttons exist
@@ -482,9 +482,9 @@ class FilterVC: UIViewController, UITextFieldDelegate, GMSAutocompleteFetcherDel
             let thirdButton = bedroomsBtnColl[Int(bedroomSize) ?? 0]
             thirdButton.backgroundColor = .white
             prevSelBedroomBtn = thirdButton } else {
-        if let firstButton = bedroomsBtnColl.first {
-            firstButton.backgroundColor = .white
-            prevSelBedroomBtn = firstButton  } }
+                if let firstButton = bedroomsBtnColl.first {
+                    firstButton.backgroundColor = .white
+                    prevSelBedroomBtn = firstButton  } }
         
         let bathroomSize = FilterSavedData.shared.bathroom
         print("bathroomSize Value: \(bathroomSize)")
@@ -492,56 +492,56 @@ class FilterVC: UIViewController, UITextFieldDelegate, GMSAutocompleteFetcherDel
             let thirdButton = bathRoomesBtnColl[Int(bathroomSize) ?? 0]
             thirdButton.backgroundColor = .white
             prevSelBathroomButton = thirdButton } else {
-            if let firstButton = bathRoomesBtnColl.first {
-            firstButton.backgroundColor = .white
-            prevSelBathroomButton = firstButton } }
+                if let firstButton = bathRoomesBtnColl.first {
+                    firstButton.backgroundColor = .white
+                    prevSelBathroomButton = firstButton } }
         
-       
+        
         // Configure DropDown
         setupDropDown()
         setupDatePicker()
     }
-
+    
     
     @objc func minValueChanged() {
-//        if viewModelRange.minValue == ""{
-//            print("⚠️ Min value out of range or greater than max")
-//        }else{
-//            viewModelRange.minValue = Double(txt_min.text ?? "") ?? 0.0
-//        }
-//        guard let text = txt_min.text, !text.isEmpty, let value = Int(text) else { return }
-//        let cgValue = CGFloat(value)
-//        
-//        if cgValue >= rangeSeeker.minValue &&
-//           cgValue <= rangeSeeker.maxValue &&
-//           cgValue <= rangeSeeker.selectedMaxValue {  // Ensures min <= max
-//           
-//            DispatchQueue.main.async {
-//                print(cgValue, "rangeSeekerMinValue")
-//                UIView.animate(withDuration: 0.1) {
-//                    self.rangeSeeker.selectedMinValue = cgValue
-//                    self.txt_min.text = "$\(Int(cgValue))"
-//                    self.rangeSeeker.setNeedsDisplay()
-//                    self.rangeSeeker.setNeedsLayout()
-//                    self.rangeSeeker.layoutIfNeeded()
-//                }
-//            }
-//        } else {
-//            print("⚠️ Min value out of range or greater than max")
-//            self.showAlert(for: "Min value out of range or greater than max")
-//            self.txt_max.text = "$0"
-//        }
+        //        if viewModelRange.minValue == ""{
+        //            print("⚠️ Min value out of range or greater than max")
+        //        }else{
+        //            viewModelRange.minValue = Double(txt_min.text ?? "") ?? 0.0
+        //        }
+        //        guard let text = txt_min.text, !text.isEmpty, let value = Int(text) else { return }
+        //        let cgValue = CGFloat(value)
+        //
+        //        if cgValue >= rangeSeeker.minValue &&
+        //           cgValue <= rangeSeeker.maxValue &&
+        //           cgValue <= rangeSeeker.selectedMaxValue {  // Ensures min <= max
+        //
+        //            DispatchQueue.main.async {
+        //                print(cgValue, "rangeSeekerMinValue")
+        //                UIView.animate(withDuration: 0.1) {
+        //                    self.rangeSeeker.selectedMinValue = cgValue
+        //                    self.txt_min.text = "$\(Int(cgValue))"
+        //                    self.rangeSeeker.setNeedsDisplay()
+        //                    self.rangeSeeker.setNeedsLayout()
+        //                    self.rangeSeeker.layoutIfNeeded()
+        //                }
+        //            }
+        //        } else {
+        //            print("⚠️ Min value out of range or greater than max")
+        //            self.showAlert(for: "Min value out of range or greater than max")
+        //            self.txt_max.text = "$0"
+        //        }
     }
-
-
+    
+    
     @objc func maxValueChanged() {
         guard let text = txt_max.text, !text.isEmpty, let value = Int(text) else { return }
         let cgValue = CGFloat(value)
         
         if cgValue >= rangeSeeker.minValue &&
-           cgValue <= rangeSeeker.maxValue &&
-           cgValue >= rangeSeeker.selectedMinValue {  // Ensures max >= min
-           
+            cgValue <= rangeSeeker.maxValue &&
+            cgValue >= rangeSeeker.selectedMinValue {  // Ensures max >= min
+            
             DispatchQueue.main.async {
                 print(cgValue, "rangeSeekerMaxValue")
                 UIView.animate(withDuration: 0.1) {
@@ -558,48 +558,48 @@ class FilterVC: UIViewController, UITextFieldDelegate, GMSAutocompleteFetcherDel
             self.txt_max.text = "$100"
         }
     }
-
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
-            if textField == txt_PropertyType{
-                previouslySelectedButton?.backgroundColor = .clear
-            }else if textField == txt_NumberofPeople{
-                prevSelNo_PplBtn?.backgroundColor = .clear
-            }else if textField == txt_numberofbedroom{
-                prevSelBedroomBtn?.backgroundColor = .clear
-            }else if textField == txt_numberofbathroom{
-                prevSelBathroomButton?.backgroundColor = .clear
+        if textField == txt_PropertyType{
+            previouslySelectedButton?.backgroundColor = .clear
+        }else if textField == txt_NumberofPeople{
+            prevSelNo_PplBtn?.backgroundColor = .clear
+        }else if textField == txt_numberofbedroom{
+            prevSelBedroomBtn?.backgroundColor = .clear
+        }else if textField == txt_numberofbathroom{
+            prevSelBathroomButton?.backgroundColor = .clear
+        }
+    }
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField == txt_PropertyType{
+            if self.txt_PropertyType.text == ""{
+                self.previouslySelectedButton?.backgroundColor = .white
+            }else{
+                SingltonClass.shared.propertySize = txt_PropertyType.text ?? ""
+            }
+        }else if textField == txt_NumberofPeople{
+            if self.txt_NumberofPeople.text == ""{
+                self.previouslySelectedButton?.backgroundColor = .white
+            }else{
+                SingltonClass.shared.no_Of_Ppl = txt_NumberofPeople.text ?? ""
+            }
+            
+        }else if textField == txt_numberofbedroom{
+            if self.txt_numberofbedroom.text == ""{
+                self.previouslySelectedButton?.backgroundColor = .white
+            }else{
+                SingltonClass.shared.bedrooms = txt_numberofbedroom.text ?? ""
+            }
+            
+        }else if textField == txt_numberofbathroom{
+            if self.txt_numberofbathroom.text == ""{
+                self.previouslySelectedButton?.backgroundColor = .white
+            }else{
+                SingltonClass.shared.bathrooms = txt_numberofbathroom.text ?? ""
             }
         }
-        func textFieldDidEndEditing(_ textField: UITextField) {
-            if textField == txt_PropertyType{
-                if self.txt_PropertyType.text == ""{
-                    self.previouslySelectedButton?.backgroundColor = .white
-                }else{
-                    SingltonClass.shared.propertySize = txt_PropertyType.text ?? ""
-                }
-            }else if textField == txt_NumberofPeople{
-                if self.txt_NumberofPeople.text == ""{
-                    self.previouslySelectedButton?.backgroundColor = .white
-                }else{
-                    SingltonClass.shared.no_Of_Ppl = txt_NumberofPeople.text ?? ""
-                }
-                
-            }else if textField == txt_numberofbedroom{
-                if self.txt_numberofbedroom.text == ""{
-                    self.previouslySelectedButton?.backgroundColor = .white
-                }else{
-                    SingltonClass.shared.bedrooms = txt_numberofbedroom.text ?? ""
-                }
-                
-            }else if textField == txt_numberofbathroom{
-                if self.txt_numberofbathroom.text == ""{
-                    self.previouslySelectedButton?.backgroundColor = .white
-                }else{
-                    SingltonClass.shared.bathrooms = txt_numberofbathroom.text ?? ""
-                }
-            }
-           
-        }
+        
+    }
     
     func setupDropDown() {
         dropDownLocation.anchorView = txt_location
@@ -610,9 +610,9 @@ class FilterVC: UIViewController, UITextFieldDelegate, GMSAutocompleteFetcherDel
             self?.locationss = item
             FilterSavedData.shared.locationss = item
             self?.txt_location.resignFirstResponder()
-                self?.dropDownLocation.hide()
-            }
+            self?.dropDownLocation.hide()
         }
+    }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if textField == txt_location{
@@ -621,23 +621,23 @@ class FilterVC: UIViewController, UITextFieldDelegate, GMSAutocompleteFetcherDel
             return true
         }
         return true
-      }
-      
-      // MARK: - GMSAutocompleteFetcherDelegate
-      func didAutocomplete(with predictions: [GMSAutocompletePrediction]) {
-          self.predictions = predictions
-          
-          // Convert predictions to string array for DropDown
-          let predictionTexts = predictions.map { $0.attributedPrimaryText.string }
-          dropDownLocation.dataSource = predictionTexts
-          dropDownLocation.show()
-      }
-      
-      func didFailAutocompleteWithError(_ error: Error) {
-          print("Error: \(error.localizedDescription)")
-      }
-
-
+    }
+    
+    // MARK: - GMSAutocompleteFetcherDelegate
+    func didAutocomplete(with predictions: [GMSAutocompletePrediction]) {
+        self.predictions = predictions
+        
+        // Convert predictions to string array for DropDown
+        let predictionTexts = predictions.map { $0.attributedPrimaryText.string }
+        dropDownLocation.dataSource = predictionTexts
+        dropDownLocation.show()
+    }
+    
+    func didFailAutocompleteWithError(_ error: Error) {
+        print("Error: \(error.localizedDescription)")
+    }
+    
+    
     @IBAction func btnClearAll_Tap(_ sender: UIButton) {
         
         
@@ -658,15 +658,15 @@ class FilterVC: UIViewController, UITextFieldDelegate, GMSAutocompleteFetcherDel
         btnAllowInstantBooking.setImage(UIImage(named: "Deselecticon"), for: .normal)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { // 0.1s delay
-               self.rangeSeeker.minValue = 0
-               self.rangeSeeker.maxValue = 100
-               self.rangeSeeker.selectedMinValue = 0
-               self.rangeSeeker.selectedMaxValue = 100
+            self.rangeSeeker.minValue = 0
+            self.rangeSeeker.maxValue = 100
+            self.rangeSeeker.selectedMinValue = 0
+            self.rangeSeeker.selectedMaxValue = 100
             self.txt_min.text = "$0"
             self.txt_max.text = "$100"
-
-               self.rangeSeeker.layoutSubviews()
-           }
+            
+            self.rangeSeeker.layoutSubviews()
+        }
         
         self.arrSelectedActivity.removeAll()
         self.arrSelectedOtherActivity.removeAll()
@@ -710,10 +710,10 @@ class FilterVC: UIViewController, UITextFieldDelegate, GMSAutocompleteFetcherDel
         }
         
         // Set the first button as selected by default
-       if let firstButton = buttonCollection.first {
-           firstButton.backgroundColor = .white
-           previouslySelectedButton = firstButton
-       }
+        if let firstButton = buttonCollection.first {
+            firstButton.backgroundColor = .white
+            previouslySelectedButton = firstButton
+        }
         
         if let firstButton = bedroomsBtnColl.first {
             firstButton.backgroundColor = .white
@@ -725,7 +725,7 @@ class FilterVC: UIViewController, UITextFieldDelegate, GMSAutocompleteFetcherDel
             prevSelBathroomButton = firstButton
         }
         
-       
+        
         
     }
     
@@ -771,7 +771,7 @@ class FilterVC: UIViewController, UITextFieldDelegate, GMSAutocompleteFetcherDel
         
     }
     
-   
+    
     
     @IBAction func btn_AddBedroomTap(_ sender: UIButton) {
         self.bedroom = self.txt_numberofbedroom.text ?? ""
@@ -811,7 +811,7 @@ class FilterVC: UIViewController, UITextFieldDelegate, GMSAutocompleteFetcherDel
         prevSelBathroomButton = sender
     }
     
-   
+    
     
     @IBAction func btnSearch_Tap(_ sender: UIButton) {
         
@@ -820,7 +820,7 @@ class FilterVC: UIViewController, UITextFieldDelegate, GMSAutocompleteFetcherDel
         viewModel.maximumprice = self.maximumprice
         viewModel.locationss = self.locationss
         viewModel.datess = self.datess
-       viewModel.timess = self.timess
+        viewModel.timess = self.timess
         viewModel.peoplecount = self.peoplecount
         viewModel.propertysize = self.propertysize
         viewModel.bedroom = self.bedroom
@@ -855,16 +855,16 @@ class FilterVC: UIViewController, UITextFieldDelegate, GMSAutocompleteFetcherDel
         viewModel.language = self.arrSelectedLanguage
         
         viewModel.apiForFilterHomeData()
-     
+        
     }
     
- 
+    
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         updateCollectionViewHeight()
     }
-
+    
     private func updateCollectionViewHeight() {
         // Calculate the number of rows needed
         let numberOfItems = collectionView(collecV_OtherActivites, numberOfItemsInSection: 0)
@@ -911,7 +911,7 @@ class FilterVC: UIViewController, UITextFieldDelegate, GMSAutocompleteFetcherDel
     }
     
     @IBAction func btnLocation_Tap(_ sender: UIButton) {
-  
+        
         fetcher?.sourceTextHasChanged(self.txt_location.text ?? "")
         
     }
@@ -920,7 +920,7 @@ class FilterVC: UIViewController, UITextFieldDelegate, GMSAutocompleteFetcherDel
         if sender.isSelected == false {
             sender.isSelected = true
             self.instantbooking = "1"
-           
+            
             btnAllowInstantBooking.setImage(UIImage(named: "selecticon"), for: .normal)
             
         } else {
@@ -943,7 +943,7 @@ class FilterVC: UIViewController, UITextFieldDelegate, GMSAutocompleteFetcherDel
             self.selfCheckIn = "0"
             btnSelfCheckIn.setImage(UIImage(named: "Deselecticon"), for: .normal)
         }
-        FilterSavedData.shared.selfCheckIn = self.selfCheckIn 
+        FilterSavedData.shared.selfCheckIn = self.selfCheckIn
     }
     @IBAction func btnAllowPets_Tap(_ sender: UIButton) {
         if sender.isSelected == false {
@@ -1055,7 +1055,7 @@ class FilterVC: UIViewController, UITextFieldDelegate, GMSAutocompleteFetcherDel
             self?.timess = number
             
             FilterSavedData.shared.timess = number
-
+            
         }
         timeDropdown.show()
     }
@@ -1133,7 +1133,7 @@ class FilterVC: UIViewController, UITextFieldDelegate, GMSAutocompleteFetcherDel
     
     func setupDatePicker() {
         // Create UIDatePicker
-      //  let datePicker = UIDatePicker()
+        //  let datePicker = UIDatePicker()
         let datePicker = UIDatePicker(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 400)) // Increased height
         datePicker.datePickerMode = .date
         datePicker.minimumDate = Date()
@@ -1158,7 +1158,7 @@ class FilterVC: UIViewController, UITextFieldDelegate, GMSAutocompleteFetcherDel
         toolbar.setItems([cancelButton, flexibleSpace, doneButton], animated: true)
         txtDate.inputAccessoryView = toolbar
     }
-
+    
     @objc func doneDatePicker() {
         if let datePicker = txtDate.inputView as? UIDatePicker {
             let formatter = DateFormatter()
@@ -1169,12 +1169,12 @@ class FilterVC: UIViewController, UITextFieldDelegate, GMSAutocompleteFetcherDel
         }
         txtDate.resignFirstResponder() // Close picker
     }
-
+    
     @objc func cancelDatePicker() {
         txtDate.resignFirstResponder() // Close picker without selecting a date
     }
     
-
+    
     @IBAction func btnSaveDateYear_Tap(_ sender: UIButton) {
         viewHoldDateYEar.isHidden = true
     }
@@ -1327,7 +1327,7 @@ extension FilterVC : UICollectionViewDelegate,UICollectionViewDataSource {
             if arrSelectedActivity.contains("\(indexPath.row)"){
                 if let index = arrSelectedActivity.firstIndex(of: "\(indexPath.row)") {
                     arrSelectedActivity.remove(at: index)
-                   }
+                }
             }else{
                 self.arrSelectedActivity.append("\(indexPath.row)")
             }
@@ -1351,7 +1351,7 @@ extension FilterVC : UICollectionViewDelegate,UICollectionViewDataSource {
             if arrSelectedOtherActivity.contains("\(indexPath.row)"){
                 if let index = arrSelectedOtherActivity.firstIndex(of: "\(indexPath.row)") {
                     arrSelectedOtherActivity.remove(at: index)
-                   }
+                }
             }else{
                 self.arrSelectedOtherActivity.append("\(indexPath.row)")
             }
@@ -1391,8 +1391,8 @@ extension FilterVC : UICollectionViewDelegate,UICollectionViewDataSource {
     @objc func buttonSelectAmenties(_ sender: UIButton) {
         if arrSelectedAmenties.contains("\(sender.tag)"){
             if let index = arrSelectedAmenties.firstIndex(of: "\(sender.tag)") {
-                   arrSelectedAmenties.remove(at: index)
-               }
+                arrSelectedAmenties.remove(at: index)
+            }
         }else{
             self.arrSelectedAmenties.append("\(sender.tag)")
         }
@@ -1500,7 +1500,7 @@ extension FilterVC {
                         self.getFilterDataArr = response.data ?? []
                         
                         if self.getFilterDataArr?.count == 0 {
-                          
+                            
                             let vc = self.storyboard?.instantiateViewController(withIdentifier: "SorryVC") as! SorryVC
                             self.navigationController?.pushViewController(vc, animated: true)
                             
@@ -1508,7 +1508,7 @@ extension FilterVC {
                             self.FilterStatus = "yes"
                             self.backAction(self.getFilterDataArr,  self.FilterStatus)
                             self.dismiss(animated: true)
-                          
+                            
                         } } else {
                             self.FilterStatus = "yes"
                             self.backAction(self.getFilterDataArr, self.FilterStatus)
@@ -1530,5 +1530,5 @@ extension FilterVC {
                     self.viewModelRange.maxValue = 90.00// Double(response.data?.maximumPrice ?? "0") ?? 0.0
                 })
             }.store(in: &cancellables)
-        }
     }
+}

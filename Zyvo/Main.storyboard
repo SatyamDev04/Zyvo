@@ -10279,7 +10279,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Profile picture" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wcW-IS-DfT">
-                                                    <rect key="frame" x="113" y="30" width="149.5" height="21"/>
+                                                    <rect key="frame" x="104.5" y="30" width="166.5" height="25.5"/>
                                                     <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -16201,7 +16201,7 @@ Available at checkout. </string>
         <!--Add To Wish List Pop UpVC-->
         <scene sceneID="0v1-KC-2dC">
             <objects>
-                <viewController storyboardIdentifier="AddToWishListPopUpVC" modalPresentationStyle="overFullScreen" id="Zau-2n-d7e" customClass="AddToWishListPopUpVC" customModule="Zyvo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddToWishListPopUpVC" modalTransitionStyle="flipHorizontal" modalPresentationStyle="fullScreen" id="Zau-2n-d7e" customClass="AddToWishListPopUpVC" customModule="Zyvo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fcz-jc-ffP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -16240,7 +16240,7 @@ Available at checkout. </string>
                                         </constraints>
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yii-Uk-eCS">
-                                        <rect key="frame" x="10" y="90" width="335" height="455"/>
+                                        <rect key="frame" x="10" y="100" width="335" height="445"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="x4b-PA-Ffm">
                                             <size key="itemSize" width="128" height="128"/>
@@ -16300,7 +16300,7 @@ Available at checkout. </string>
                                     <constraint firstItem="chE-uP-sc7" firstAttribute="top" secondItem="yii-Uk-eCS" secondAttribute="bottom" constant="20" id="6It-zs-FJf"/>
                                     <constraint firstItem="Xee-0Z-bMc" firstAttribute="top" secondItem="9SY-Ij-AVo" secondAttribute="top" constant="20" id="7zI-X2-VZd"/>
                                     <constraint firstItem="Xee-0Z-bMc" firstAttribute="leading" secondItem="9SY-Ij-AVo" secondAttribute="leading" id="AtH-DX-UxP"/>
-                                    <constraint firstItem="yii-Uk-eCS" firstAttribute="top" secondItem="Xee-0Z-bMc" secondAttribute="bottom" constant="10" id="DTd-LS-CoN"/>
+                                    <constraint firstItem="yii-Uk-eCS" firstAttribute="top" secondItem="Xee-0Z-bMc" secondAttribute="bottom" constant="20" id="DTd-LS-CoN"/>
                                     <constraint firstItem="yii-Uk-eCS" firstAttribute="leading" secondItem="9SY-Ij-AVo" secondAttribute="leading" constant="10" id="LJF-IL-qsb"/>
                                     <constraint firstAttribute="bottom" secondItem="chE-uP-sc7" secondAttribute="bottom" constant="20" id="Rn1-2d-40A"/>
                                     <constraint firstAttribute="trailing" secondItem="8jQ-ue-F6k" secondAttribute="trailing" constant="10" id="asT-ey-k8L"/>
@@ -28891,10 +28891,10 @@ click ‘yes” below.</string>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="R2a-HE-gSA">
                                                         <rect key="frame" x="20" y="210" width="310" height="50"/>
                                                         <subviews>
-                                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lwt-vX-dSD">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lwt-vX-dSD">
                                                                 <rect key="frame" x="0.0" y="0.0" width="131" height="50"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Mar 13, 2022" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rK2-5z-9Gr">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mar 13, 2022" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rK2-5z-9Gr">
                                                                         <rect key="frame" x="29" y="0.0" width="92" height="50"/>
                                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -28919,10 +28919,10 @@ click ‘yes” below.</string>
                                                                     <constraint firstItem="rK2-5z-9Gr" firstAttribute="leading" secondItem="6ZM-kT-usO" secondAttribute="trailing" constant="6" id="yTF-t0-Xvk"/>
                                                                 </constraints>
                                                             </view>
-                                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="naq-BQ-f39">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="naq-BQ-f39">
                                                                 <rect key="frame" x="151" y="0.0" width="159" height="50"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="3 min read" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W7j-gD-7Iy">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 min read" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W7j-gD-7Iy">
                                                                         <rect key="frame" x="28" y="0.0" width="126" height="50"/>
                                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -30979,10 +30979,10 @@ and get you to the right place. </string>
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPurpleColor">
-            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="viewFlipsideBackgroundColor">
             <color red="0.12156862745098039" green="0.12941176470588237" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
