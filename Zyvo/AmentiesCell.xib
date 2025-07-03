@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-Regular.ttf">
+            <string>Poppins-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AmentiesCell" id="gTV-IL-0wX" customClass="AmentiesCell" customModule="Zyvo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="230" height="57"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="230" height="57"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c5j-cd-Ffp">
+                        <rect key="frame" x="10" y="5" width="210" height="47"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="grgrgergergregrgregergeregergergrgergergerger" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lxt-ri-bZe">
+                                <rect key="frame" x="35" y="7.6666666666666661" width="175" height="31.333333333333336"/>
+                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mxf-ew-HBg">
+                                <rect key="frame" x="0.0" y="6" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="D0N-MT-0ha"/>
+                                    <constraint firstAttribute="width" constant="35" id="Qte-iC-4R3"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="blankIcon"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Lxt-ri-bZe" firstAttribute="top" secondItem="c5j-cd-Ffp" secondAttribute="top" constant="7.6699999999999999" id="L98-TL-jCP"/>
+                            <constraint firstAttribute="trailing" secondItem="Lxt-ri-bZe" secondAttribute="trailing" id="RhH-FA-a0c"/>
+                            <constraint firstAttribute="bottom" secondItem="Lxt-ri-bZe" secondAttribute="bottom" constant="8" id="eFv-25-tKn"/>
+                            <constraint firstItem="Mxf-ew-HBg" firstAttribute="leading" secondItem="c5j-cd-Ffp" secondAttribute="leading" priority="750" id="fb1-AW-W4q"/>
+                            <constraint firstItem="Lxt-ri-bZe" firstAttribute="leading" secondItem="Mxf-ew-HBg" secondAttribute="trailing" id="qwu-9M-EC5"/>
+                            <constraint firstItem="Mxf-ew-HBg" firstAttribute="centerY" secondItem="c5j-cd-Ffp" secondAttribute="centerY" id="upm-Z6-F1K"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="c5j-cd-Ffp" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="QJd-fd-Ntq"/>
+                <constraint firstItem="c5j-cd-Ffp" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="RDx-Ha-HTY"/>
+                <constraint firstAttribute="trailing" secondItem="c5j-cd-Ffp" secondAttribute="trailing" constant="10" id="fS8-2F-bVh"/>
+                <constraint firstAttribute="bottom" secondItem="c5j-cd-Ffp" secondAttribute="bottom" constant="5" id="xEn-WN-Vc4"/>
+            </constraints>
+            <size key="customSize" width="230" height="57"/>
+            <connections>
+                <outlet property="btnCheck" destination="Mxf-ew-HBg" id="LBI-es-ZP1"/>
+                <outlet property="btnLeadingConst" destination="RhH-FA-a0c" id="7Or-5H-F6P"/>
+                <outlet property="lbl_title" destination="Lxt-ri-bZe" id="3ee-FV-qxm"/>
+            </connections>
+            <point key="canvasLocation" x="232.06106870229007" y="22.183098591549296"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="blankIcon" width="20" height="21"/>
+    </resources>
+</document>
