@@ -45,7 +45,10 @@ struct HomeDataModel: Codable {
     let isInstantBook: Int?
     let images: [String]?
     let isStarHost: Bool?
-
+    let hostName: String?
+    let hostAddress: String?
+    let hostProfileImageUrl: String?
+    
     enum CodingKeys: String, CodingKey {
         case distanceMiles = "distance_miles"
         case hourlyRate = "hourly_rate"
@@ -57,6 +60,11 @@ struct HomeDataModel: Codable {
         case isInstantBook = "is_instant_book"
         case images
         case isStarHost = "is_star_host"
+        case hostName = "host_name"
+        case hostAddress = "host_address"
+        case hostProfileImageUrl = "host_profile_image"
+        
+        
     }
 }
 //struct HomeDataModel: Codable {

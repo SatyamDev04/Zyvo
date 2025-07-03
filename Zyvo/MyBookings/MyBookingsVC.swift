@@ -85,11 +85,11 @@ extension MyBookingsVC: UITableViewDelegate, UITableViewDataSource {
         let data = myBookingArr[indexPath.row]
         // Configure the button based on row
         switch data.bookingStatus {
-        case "finished":
+        case "Finished":
             cell.btn_title.backgroundColor = UIColor(red: 74/255, green: 237/255, blue: 177/255, alpha: 1)
             cell.btn_title.setTitle("Finished", for: .normal)
             cell.btnWidthConst.constant = 85
-        case "confirmed":
+        case "Confirmed":
             cell.btn_title.backgroundColor = UIColor(red: 133/255, green: 214/255, blue: 255/255, alpha: 1)
             cell.btn_title.setTitle("Confirmed", for: .normal)
             cell.btnWidthConst.constant = 105
@@ -97,7 +97,7 @@ extension MyBookingsVC: UITableViewDelegate, UITableViewDataSource {
             cell.btn_title.backgroundColor = UIColor(red: 255/255, green: 241/255, blue: 120/255, alpha: 1)
             cell.btn_title.setTitle("Waiting payment", for: .normal)
             cell.btnWidthConst.constant = 140
-        case "cancelled":
+        case "Cancelled":
             cell.btn_title.backgroundColor = UIColor(red: 58/255, green: 75/255, blue: 76/255, alpha: 0.10)
             cell.btn_title.setTitle("Cancelled", for: .normal)
             cell.btnWidthConst.constant = 100
@@ -170,17 +170,13 @@ extension MyBookingsVC {
                 result?.handle(success: { response in
                     // let to = response.data?.token
                     print(response.message ?? "")
-                    
                     self.myBookingArr = response.data ?? []
-                    
                     if self.myBookingArr.count == 0 {
                         self.tblV.setEmptyView(message: "No Data Found")
                     } else {
                         self.tblV.setEmptyView(message: "")
                     }
-                    
                     self.tblV.reloadData()
-                    
                 })
             }.store(in: &cancellables)
         
@@ -192,19 +188,14 @@ extension MyBookingsVC {
                 result?.handle(success: { response in
                     // let to = response.data?.token
                     print(response.message ?? "")
-                    
                     self.myBookingArr.remove(at: self.indexneedTODelete ?? 0)
-                    
                     if self.myBookingArr.count == 0 {
                         self.tblV.setEmptyView(message: "No Data Found")
                     } else {
                         self.tblV.setEmptyView(message: "")
                     }
-                    
                     self.tblV.reloadData()
-                    
                 })
             }.store(in: &cancellables)
-        
     }
 }

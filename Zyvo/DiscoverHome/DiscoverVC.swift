@@ -791,8 +791,15 @@ extension DiscoverVC :UICollectionViewDelegate,UICollectionViewDataSource {
         } else {
             cell.view_Instant.isHidden = true
         }
+        cell.lbl_NameHostedBy.text = data?.hostName ?? ""
+        cell.lbl_AddressHostedby.text = data?.hostAddress ?? ""
+        let hostProfileImgUrl = data?.hostProfileImageUrl ?? ""
+       
+        let imgURL = AppURL.imageURL + hostProfileImgUrl
+        cell.imgHostedBy.loadImage(from:imgURL,placeholder: UIImage(named: ""))
+        
         cell.lbl_name.text = data?.title ?? ""
-        var rating = data?.rating ?? ""
+        let rating = data?.rating ?? ""
         if rating != "" {
             cell.lbl_Rating.text = rating.formattedToDecimal()
         } else {

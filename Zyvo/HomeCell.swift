@@ -12,7 +12,11 @@ class HomeCell: UICollectionViewCell {
     @IBOutlet weak var btnInstantBook: UIButton!
     @IBOutlet weak var btnImgDistance: UIButton!
     @IBOutlet weak var imgBookMark: UIButton!
+    @IBOutlet weak var lbl_AddressHostedby: UILabel!
+    @IBOutlet weak var lbl_NameHostedBy: UILabel!
+    @IBOutlet weak var viewMain_hostedBy: UIView!
     @IBOutlet weak var view_Instant: UIView!
+    @IBOutlet weak var imgHostedBy: UIImageView!
     @IBOutlet weak var btnHeart: UIButton!
     @IBOutlet weak var btnCross: UIButton!
     @IBOutlet weak var btninstant: UIButton!
@@ -27,6 +31,9 @@ class HomeCell: UICollectionViewCell {
     var imgArr = [String]()
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        viewMain_hostedBy.layer.cornerRadius = 12
+        
         view_Instant.layer.cornerRadius = view_Instant.layer.frame.height / 2
         let nib3 = UINib(nibName: "imgCell", bundle: nil)
         CollecV?.register(nib3, forCellWithReuseIdentifier: "imgCell")

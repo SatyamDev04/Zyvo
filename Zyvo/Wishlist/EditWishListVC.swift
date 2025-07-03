@@ -64,7 +64,7 @@ extension EditWishListVC :UICollectionViewDelegate,UICollectionViewDataSource {
         cell.view_Instant.isHidden = true
         cell.btnCross.isHidden = true
         cell.imgBookMark.isHidden = true
-        
+        cell.viewMain_hostedBy.isHidden = true
         cell.btnImgDistance.isHidden = true
        
         cell.lbl_name.text = data?.title ?? ""

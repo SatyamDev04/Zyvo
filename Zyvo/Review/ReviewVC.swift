@@ -183,25 +183,26 @@ class ReviewVC: UIViewController,UITextViewDelegate {
         view_MessageDesc.isHidden = true
         print(BookingStatus,"BookingStatus Coming")
         switch BookingStatus {
-        case "finished":
+        case "Finished":
             btnReviewBooking.setTitle("Review Booking", for: .normal)
+            btnBelowBookingStatus.backgroundColor = UIColor(red: 74/255, green: 237/255, blue: 177/255, alpha: 1)
             btnBelowBookingStatus.setTitle("Finished", for: .normal)
-            
-        case "confirmed":
+        case "Confirmed":
             btnBelowBookingStatus.setTitle("Confirmed", for: .normal)
-            btnReviewBooking.setTitle("Cancel", for: .normal)
+            btnBelowBookingStatus.backgroundColor = UIColor(red: 133/255, green: 214/255, blue: 255/255, alpha: 1)
+            btnReviewBooking.setTitle("Cancel Booking", for: .normal)
         case "waiting_payment":
             btnBelowBookingStatus.setTitle("Waiting payment", for: .normal)
-            btnReviewBooking.setTitle("Cancel", for: .normal)
-            
-        case "cancelled":
+            btnBelowBookingStatus.backgroundColor = UIColor(red: 255/255, green: 241/255, blue: 120/255, alpha: 1)
+            btnReviewBooking.setTitle("Cancel Booking", for: .normal)
+        case "Cancelled":
             btnBelowBookingStatus.setTitle("Cancelled", for: .normal)
-            btnReviewBooking.setTitle("Review Booking", for: .normal)
-            
+            btnBelowBookingStatus.backgroundColor = UIColor(red: 58/255, green: 75/255, blue: 76/255, alpha: 0.10)
+            btnReviewBooking.setTitle("Cancelled", for: .normal)
         default:
             btnBelowBookingStatus.setTitle("Pending", for: .normal)
-            btnReviewBooking.setTitle("Cancel", for: .normal)
-            
+            btnBelowBookingStatus.backgroundColor = .lightGray
+            btnReviewBooking.setTitle("Cancel Booking", for: .normal)
             break
         }
         
@@ -464,7 +465,7 @@ class ReviewVC: UIViewController,UITextViewDelegate {
             vc.bookingID = self.bookingID
             vc.propertyID = self.propertyID
             self.present(vc, animated: true)
-        } else if sender.title(for: .normal) == "Cancel" {
+        } else if sender.title(for: .normal) == "Cancel Booking" {
             // Perform task for cancel
             print("Booking is cancelled. Perform related task here.")
             

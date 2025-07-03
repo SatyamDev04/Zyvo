@@ -81,6 +81,8 @@ class OTPSenderVC: UIViewController,UITextFieldDelegate {
     }
     
     private func setupCountryAndPhoneFields() {
+      
+        countryCodeTF.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         countryCodeTF.text = "🇺🇸 +1"
         self.countryCode  = "+1"
         viewModelVerifyPhone.countryCode = "+1"
@@ -294,11 +296,33 @@ extension OTPSenderVC: CountryPickerViewDelegate {
     func countryPickerView(_ countryPickerView: CountryPickerView, didSelectCountry country: Country) {
         // Use the name and phone code directly
         
-        let flag = country.code.flagEmoji // Access the flag emoji as String
-        let name = country.name
+        
+        let flag = country.code.flagEmoji
         let code = country.phoneCode
+
+        // Make sure flag uses a pure emoji-compatible font
+        let emojiFont = UIFont.systemFont(ofSize: 14)
+        let textFont = UIFont.systemFont(ofSize: 14, weight: .regular)
+
+        // Build attributed string with flag in emoji font and code in regular font
+        let attributedText = NSMutableAttributedString(
+            string: "\(flag) ",
+            attributes: [.font: emojiFont]
+        )
+        attributedText.append(NSAttributedString(
+            string: "(\(code))",
+            attributes: [.font: textFont]
+        ))
+
+        // Assign it directly
+        countryCodeTF.attributedText = attributedText
+       
+        //let flag = country.code.flagEmoji // Access the flag emoji as String
+       // let name = country.name
+      //  let code = country.phoneCode
        // self.countryCode = code
-        countryCodeTF.text = "\(flag) (\(code))"
+       // countryCodeTF.text = "\(flag) (\(code))"
+        
         self.countryCode = "\(flag) (\(code))"
         viewModelUpdatePhone.countryCode = code
         viewModelVerifyPhone.countryCode = code
