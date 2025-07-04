@@ -133,8 +133,8 @@ class ChooseLanguageVC:UIViewController, UICollectionViewDataSource, UICollectio
         // Use high-order function to set border color based on selection
         let isSelected = mySelectedLanguageArr.contains(where: { $0 == languageName })
         cell.viewMain.layer.borderColor = isSelected ?
-            UIColor(red: 74/255, green: 234/255, blue: 177/255, alpha: 1).cgColor :
-            UIColor.lightGray.cgColor
+        UIColor(red: 74/255, green: 234/255, blue: 177/255, alpha: 0.75).cgColor :
+        UIColor.init(red: 229/255, green: 229/255, blue: 229/255, alpha: 0.75).cgColor
         
         // Set labels
         cell.lbl_LanguageTitle.text = languageName

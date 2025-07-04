@@ -14,11 +14,12 @@ class ChooseLanguageCell: UICollectionViewCell {
     @IBOutlet weak var lbl_LanguageTitle: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        viewMain.layer.cornerRadius = 10
-        viewMain.layer.borderWidth = 0.75
-        viewMain.layer.borderColor = UIColor.lightGray.cgColor
-
-       
+        
+        lbl_LanguageTitle.font = UIFont(name: "Poppins-SemiBold", size: 15.5)
+        lbl_CountryName.font = UIFont(name: "Poppins-Medium", size: 14)
+        viewMain.layer.cornerRadius = 15
+        viewMain.layer.borderWidth = 1.25
+        
     }
-
 }
+    

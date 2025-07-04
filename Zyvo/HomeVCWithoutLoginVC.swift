@@ -197,13 +197,24 @@ extension HomeVCWithoutLoginVC :UICollectionViewDelegate,UICollectionViewDataSou
         cell.view_Instant.isHidden = true
         cell.btnCross.isHidden = true
         
+        cell.lbl_NameHostedBy.text = data?.hostName ?? ""
+        cell.lbl_AddressHostedby.text = data?.hostAddress ?? ""
+        let hostProfileImgUrl = data?.hostProfileImageUrl ?? ""
+       
+        let imgURL = AppURL.imageURL + hostProfileImgUrl
+        cell.imgHostedBy.loadImage(from:imgURL,placeholder: UIImage(named: ""))
         let isInstantBookStatus =  data?.isInstantBook ?? 0
+        let imgbookingStar = data?.isStarHost ?? false
+        if imgbookingStar == false {
+            cell.imgBookMark.isHidden = true
+        }else {
+            cell.imgBookMark.isHidden = false
+        }
         if isInstantBookStatus == 0 {
             cell.view_Instant.isHidden = true
         } else {
             cell.view_Instant.isHidden = true
         }
-        
         cell.lbl_name.text = data?.title ?? ""
         
         let rating = data?.rating ?? ""

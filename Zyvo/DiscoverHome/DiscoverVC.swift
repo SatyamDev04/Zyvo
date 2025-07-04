@@ -808,7 +808,7 @@ extension DiscoverVC :UICollectionViewDelegate,UICollectionViewDataSource {
         var hour = data?.hourlyRate ?? ""
         let price = hour.formattedPrice()
         if price != "" {
-            cell.lbl_Time.text = "$ \(price) / h"
+            cell.lbl_Time.text = "$\(price) / h"
         } else {
             cell.lbl_Time.text = ""
         }

@@ -26,8 +26,6 @@ class CreateProfileVC: UIViewController,UITextViewDelegate {
     @IBOutlet weak var view_VerifiedPhone: UIView!
     @IBOutlet weak var view_ConfirmNowPhone: UIView!
     
-   
-    
     @IBOutlet weak var view_verifyIndentityConfirmNow: UIView!
     @IBOutlet weak var view_verifiedIndentity: UIView!
     
@@ -148,12 +146,12 @@ class CreateProfileVC: UIViewController,UITextViewDelegate {
         view_timeResend.isHidden = true
         
         view_Email.layer.cornerRadius = view_Email.layer.frame.height / 2
-        view_Email.layer.borderWidth = 1
-        view_Email.layer.borderColor = UIColor.lightGray.cgColor
+        view_Email.layer.borderWidth = 1.5
+        view_Email.layer.borderColor = UIColor.init(red: 229/255, green: 229/255, blue: 229/255, alpha: 0.85).cgColor
         
         view_Phone.layer.cornerRadius = view_Phone.layer.frame.height / 2
-        view_Phone.layer.borderWidth = 1
-        view_Phone.layer.borderColor = UIColor.lightGray.cgColor
+        view_Phone.layer.borderWidth = 1.5
+        view_Phone.layer.borderColor = UIColor.init(red: 229/255, green: 229/255, blue: 229/255, alpha: 0.85).cgColor
         
         placesClient = GMSPlacesClient.shared()
         
@@ -177,14 +175,14 @@ class CreateProfileVC: UIViewController,UITextViewDelegate {
         view_Photo.layer.borderColor = UIColor.init(red: 58/255, green: 75/255, blue: 76/266, alpha: 0.3).cgColor
         
         view_ProfileDetails.layer.cornerRadius = 15
-        view_ProfileDetails.layer.borderWidth = 0.75
-        view_ProfileDetails.layer.borderColor = UIColor.lightGray.cgColor
+        view_ProfileDetails.layer.borderWidth = 1.5
+        view_ProfileDetails.layer.borderColor =  UIColor.init(red: 229/255, green: 229/255, blue: 229/255, alpha: 0.85).cgColor
         
         countryPicker.delegate = self
         
         view_AboutMe.layer.cornerRadius = 15
-        view_AboutMe.layer.borderWidth = 0.75
-        view_AboutMe.layer.borderColor = UIColor.lightGray.cgColor
+        view_AboutMe.layer.borderWidth = 1.5
+        view_AboutMe.layer.borderColor = UIColor.init(red: 229/255, green: 229/255, blue: 229/255, alpha: 0.85).cgColor
         
         let nib2 = UINib(nibName: "MasterCell", bundle: nil)
         collecV_Place?.register(nib2, forCellWithReuseIdentifier: "MasterCell")
@@ -471,7 +469,7 @@ class CreateProfileVC: UIViewController,UITextViewDelegate {
         countryCodeTF.text = "🇺🇸 +1"
         view_Verification.isHidden = false
         verificationStatus = "PhoneVerified"
-        self.verificationDetaiilLbl.text = "Enter your phone for\nthe verification process,we will send\n4 digits code to your phone."
+        self.verificationDetaiilLbl.text = "Enter your registered phone number for the verification process, we will send 4 digits code to your number."
         if verificationStatus == "PhoneVerified" {
             view_phoneVerification.isHidden = false
             view_EmailVerificaiton.isHidden = true
@@ -1100,7 +1098,7 @@ extension CreateProfileVC: CountryPickerViewDelegate {
         let flag = country.code.flagEmoji // Access the flag emoji as String
         let name = country.name
         let code = country.phoneCode
-        countryCodeTF.text = "\(flag) (\(code))"
+        countryCodeTF.text = "\(flag) \(code)"
         self.countryCode = "\(code)"
         viewModelVerifyPhone.countryCode = self.countryCode
         let phoneNumber = (txt_PhoneVerification.text ?? "")
@@ -1221,7 +1219,24 @@ extension CreateProfileVC {
         viewModelPhoneVerifyOTP.userID = userId
         view_Verification.isHidden = true
         view_OTPVerification.isHidden = false
-        self.OTPverificationDetaiilLbl.text = "Please type the verification code send to \(Phone)"
+      //  self.OTPverificationDetaiilLbl.text = "Please type the verification code send to \(Phone)"
+        
+        let phone = "\(Phone)"
+        let fullText = "Please type the verification code send to \(phone)"
+        let boldPart = "\(phone)"
+
+        // Create NSMutableAttributedString
+        let attributedString = NSMutableAttributedString(string: fullText)
+
+        // Find the range of the bold part
+        if let range = fullText.range(of: boldPart) {
+            let nsRange = NSRange(range, in: fullText)
+            
+            // Apply bold font to that range
+            attributedString.addAttribute(.font, value: UIFont.boldSystemFont(ofSize: 16), range: nsRange)
+            self.OTPverificationDetaiilLbl.attributedText = attributedString
+        }
+        
     }
     
     private func tobeVerifyEmail(OTP:String,Email:String,userId:String){

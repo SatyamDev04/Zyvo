@@ -76,7 +76,7 @@ extension EditWishListVC :UICollectionViewDelegate,UICollectionViewDataSource {
         }
         let hour = data?.hourlyRate ?? ""
         if hour != "" {
-            cell.lbl_Time.text = "$ \(hour.formattedPrice()) / h"
+            cell.lbl_Time.text = "$\(hour.formattedPrice()) / h"
         } else {
             cell.lbl_Time.text = ""
         }

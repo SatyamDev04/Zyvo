@@ -10,6 +10,7 @@ import Combine
 import IQKeyboardManagerSwift
 class NewPasswordVC: UIViewController {
     
+    @IBOutlet weak var lbl_EnterPassword: UILabel!
     var comingFrom = ""
     var userID = ""
     
@@ -26,6 +27,7 @@ class NewPasswordVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        lbl_EnterPassword.font = UIFont(name: "Poppins_Medium", size: 11.5)
         IQKeyboardManager.shared.enable = true
         print(self.comingFrom,"ComingFrom")
         

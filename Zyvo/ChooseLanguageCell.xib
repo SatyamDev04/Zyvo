@@ -22,15 +22,15 @@
                         <rect key="frame" x="5" y="5" width="90" height="80"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wso-jl-pSa">
-                                <rect key="frame" x="10" y="11.999999999999998" width="70" height="20.333333333333329"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="5" y="11.999999999999998" width="80" height="20.333333333333329"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZUQ-FN-fw4">
-                                <rect key="frame" x="10" y="40.333333333333336" width="70" height="17"/>
+                                <rect key="frame" x="5" y="39.333333333333336" width="75" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -38,11 +38,11 @@
                         <constraints>
                             <constraint firstItem="ZUQ-FN-fw4" firstAttribute="leading" secondItem="wso-jl-pSa" secondAttribute="leading" id="46O-xl-aJM"/>
                             <constraint firstItem="wso-jl-pSa" firstAttribute="top" secondItem="All-55-mzg" secondAttribute="top" constant="12" id="Lhk-ow-kMe"/>
-                            <constraint firstItem="ZUQ-FN-fw4" firstAttribute="top" secondItem="wso-jl-pSa" secondAttribute="bottom" constant="8" id="Njd-6I-GHT"/>
+                            <constraint firstItem="ZUQ-FN-fw4" firstAttribute="top" secondItem="wso-jl-pSa" secondAttribute="bottom" constant="7" id="Njd-6I-GHT"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ZUQ-FN-fw4" secondAttribute="bottom" constant="10" id="TGd-CE-AQ6"/>
                             <constraint firstAttribute="trailing" secondItem="ZUQ-FN-fw4" secondAttribute="trailing" constant="10" id="WdC-7F-Xi1"/>
-                            <constraint firstAttribute="trailing" secondItem="wso-jl-pSa" secondAttribute="trailing" constant="10" id="w6r-au-bOD"/>
-                            <constraint firstItem="wso-jl-pSa" firstAttribute="leading" secondItem="All-55-mzg" secondAttribute="leading" constant="10" id="zwe-ZA-7GS"/>
+                            <constraint firstAttribute="trailing" secondItem="wso-jl-pSa" secondAttribute="trailing" constant="5" id="w6r-au-bOD"/>
+                            <constraint firstItem="wso-jl-pSa" firstAttribute="leading" secondItem="All-55-mzg" secondAttribute="leading" constant="5" id="zwe-ZA-7GS"/>
                         </constraints>
                     </view>
                 </subviews>
