@@ -16,6 +16,8 @@ class ActivityCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
         
+        lbl_Name.font = UIFont.init(name: "Poppins-Regular", size: 12)!
+        
         view_Main.layer.borderWidth = 1.5
 //        view_Main.layer.borderColor = UIColor.init(red: 177/255, green: 177/255, blue: 177/255, alpha: 1).cgColor
         view_Main.layer.cornerRadius = 10

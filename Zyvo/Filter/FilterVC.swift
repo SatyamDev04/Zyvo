@@ -1112,7 +1112,7 @@ class FilterVC: UIViewController, UITextFieldDelegate, GMSAutocompleteFetcherDel
         infoLabel.numberOfLines = 0
         infoLabel.layer.borderColor = UIColor.lightGray.cgColor
         infoLabel.clipsToBounds = true
-        infoLabel.frame = CGRect(x: sender.frame.midX - 10 , y: sender.frame.maxY - 100 , width: 280, height: 100)
+        infoLabel.frame = CGRect(x: sender.frame.midX - 10 , y: sender.frame.maxY - 140 , width: 280, height: 100)
         view_allowPEts.addSubview(infoLabel)
         // Hide the label after 2 seconds
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
@@ -1268,7 +1268,7 @@ extension FilterVC : UICollectionViewDelegate,UICollectionViewDataSource {
             if arrSelectedActivity.contains("\(indexPath.row)"){
                 cell.view_Main.layer.borderColor = UIColor(red: 74/255, green: 234/255, blue: 177/255, alpha: 1).cgColor
             }else{
-                cell.view_Main.layer.borderColor = UIColor.init(red: 177/255, green: 177/255, blue: 177/255, alpha: 1).cgColor
+                cell.view_Main.layer.borderColor = UIColor.init(red: 177/255, green: 177/255, blue: 177/255, alpha: 0.75).cgColor
             }
             return cell
         } else if collectionView == collecV_Amenties   {
@@ -1315,7 +1315,7 @@ extension FilterVC : UICollectionViewDelegate,UICollectionViewDataSource {
             if arrSelectedOtherActivity.contains("\(indexPath.row)"){
                 cell.view_Main.layer.borderColor = UIColor(red: 74/255, green: 234/255, blue: 177/255, alpha: 1).cgColor
             }else{
-                cell.view_Main.layer.borderColor = UIColor.init(red: 177/255, green: 177/255, blue: 177/255, alpha: 1).cgColor
+                cell.view_Main.layer.borderColor = UIColor.init(red: 177/255, green: 177/255, blue: 177/255, alpha: 0.75).cgColor
             }
             return cell
         }

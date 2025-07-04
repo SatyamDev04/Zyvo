@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -24,17 +24,17 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rix-sW-MTb">
-                        <rect key="frame" x="3" y="5" width="69" height="55"/>
+                        <rect key="frame" x="3" y="3" width="69" height="59"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="staricon 1" translatesAutoresizingMaskIntoConstraints="NO" id="rxE-LT-jgT">
-                                <rect key="frame" x="24.666666666666671" y="10" width="20" height="20"/>
+                                <rect key="frame" x="23.666666666666671" y="12" width="22" height="22"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="20" id="ciM-9X-30R"/>
-                                    <constraint firstAttribute="height" constant="20" id="kKg-g2-aae"/>
+                                    <constraint firstAttribute="width" constant="22" id="ciM-9X-30R"/>
+                                    <constraint firstAttribute="height" constant="22" id="kKg-g2-aae"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plays" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ylE-8p-5bJ">
-                                <rect key="frame" x="0.0" y="30" width="69" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plays" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ylE-8p-5bJ">
+                                <rect key="frame" x="2" y="36" width="65" height="18"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="11"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -42,21 +42,21 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="ylE-8p-5bJ" firstAttribute="top" secondItem="rxE-LT-jgT" secondAttribute="bottom" id="CWc-3E-LqL"/>
-                            <constraint firstItem="ylE-8p-5bJ" firstAttribute="leading" secondItem="Rix-sW-MTb" secondAttribute="leading" id="Cna-5p-KKh"/>
+                            <constraint firstItem="ylE-8p-5bJ" firstAttribute="top" secondItem="rxE-LT-jgT" secondAttribute="bottom" constant="2" id="CWc-3E-LqL"/>
+                            <constraint firstItem="ylE-8p-5bJ" firstAttribute="leading" secondItem="Rix-sW-MTb" secondAttribute="leading" constant="2" id="Cna-5p-KKh"/>
                             <constraint firstItem="rxE-LT-jgT" firstAttribute="centerX" secondItem="Rix-sW-MTb" secondAttribute="centerX" id="FVM-x8-eEi"/>
                             <constraint firstItem="ylE-8p-5bJ" firstAttribute="centerX" secondItem="rxE-LT-jgT" secondAttribute="centerX" id="HPa-pz-Sda"/>
                             <constraint firstAttribute="bottom" secondItem="ylE-8p-5bJ" secondAttribute="bottom" constant="5" id="WP2-7Z-AIh"/>
-                            <constraint firstItem="rxE-LT-jgT" firstAttribute="top" secondItem="Rix-sW-MTb" secondAttribute="top" constant="10" id="htY-3h-cTt"/>
-                            <constraint firstAttribute="trailing" secondItem="ylE-8p-5bJ" secondAttribute="trailing" id="oU9-Qg-6wE"/>
+                            <constraint firstItem="rxE-LT-jgT" firstAttribute="top" secondItem="Rix-sW-MTb" secondAttribute="top" constant="12" id="htY-3h-cTt"/>
+                            <constraint firstAttribute="trailing" secondItem="ylE-8p-5bJ" secondAttribute="trailing" constant="2" id="oU9-Qg-6wE"/>
                         </constraints>
                     </view>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="Rix-sW-MTb" secondAttribute="bottom" constant="5" id="4D6-XP-esT"/>
-                <constraint firstItem="Rix-sW-MTb" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="4nU-9f-dxG"/>
+                <constraint firstAttribute="bottom" secondItem="Rix-sW-MTb" secondAttribute="bottom" constant="3" id="4D6-XP-esT"/>
+                <constraint firstItem="Rix-sW-MTb" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="3" id="4nU-9f-dxG"/>
                 <constraint firstAttribute="trailing" secondItem="Rix-sW-MTb" secondAttribute="trailing" constant="3" id="ZMg-tK-Qsh"/>
                 <constraint firstItem="Rix-sW-MTb" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="3" id="c0G-pa-VKo"/>
             </constraints>
