@@ -360,7 +360,7 @@ class CheckoutVC: UIViewController {
         view_Card.layer.borderWidth = 1.5
         view_Card.layer.borderColor = UIColor.init(red: 228/255, green: 228/255, blue: 228/255, alpha: 1).cgColor
         
-        StackAbove.layer.cornerRadius = 20
+        StackAbove.layer.cornerRadius = 15
         StackAbove.layer.borderWidth = 1.5
         StackAbove.layer.borderColor = UIColor.init(red: 228/255, green: 228/255, blue: 228/255, alpha: 1).cgColor
         
@@ -442,12 +442,12 @@ class CheckoutVC: UIViewController {
         btnAddNewCard.layer.cornerRadius = btnAddNewCard.layer.frame.height / 2
         view_RulesParking.layer.cornerRadius = 10
         view_RulesParking.layer.borderWidth = 1.0
-        view_RulesParking.layer.borderColor = UIColor.lightGray.cgColor
+        view_RulesParking.layer.borderColor = UIColor.init(red: 228/255, green: 228/255, blue: 228/255, alpha: 1).cgColor
         
         
         view_HostRules.layer.cornerRadius = 10
         view_HostRules.layer.borderWidth = 1.0
-        view_HostRules.layer.borderColor = UIColor.lightGray.cgColor
+        view_HostRules.layer.borderColor = UIColor.init(red: 228/255, green: 228/255, blue: 228/255, alpha: 1).cgColor
         
         let nib = UINib(nibName: "CellHost", bundle: nil)
         collecV_Host?.register(nib, forCellWithReuseIdentifier: "CellHost")
@@ -456,7 +456,7 @@ class CheckoutVC: UIViewController {
         collVH.constant = 80
         updateCollectionViewHeight()
         
-        view_Details.layer.cornerRadius = 30
+        view_Details.layer.cornerRadius = 20
         view_Details.layer.borderWidth = 1.5
         view_Details.layer.borderColor = UIColor.init(red: 228/255, green: 228/255, blue: 228/255, alpha: 1).cgColor
         
@@ -697,11 +697,11 @@ class CheckoutVC: UIViewController {
     @IBAction func showMoreRefundPolicyBtn(_ sender: UIButton){
         if showRefundPolicy == "no"{
             self.showRefundPolicy = "yes"
-            sender.setTitle("Read Less", for: .normal)
+            sender.setTitle("Read less", for: .normal)
             self.refundPolicyLbl.text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever the industry's standard dummy .Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever the industry's standard dummy .Lorem Ipsum is simply dummy text of the printing and typesetting industry."
         }else{
             self.showRefundPolicy = "no"
-            sender.setTitle("Read More", for: .normal)
+            sender.setTitle("Read more", for: .normal)
             self.refundPolicyLbl.text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever the industry's standard dummy."
         }
     }

@@ -138,7 +138,8 @@ class FilterVC: UIViewController, UITextFieldDelegate, GMSAutocompleteFetcherDel
     var predictions = [GMSAutocompletePrediction]()
     
     private var minValue: Double = 20
-    private var maxValue: Double = 80
+    private var maxValue: Double = 100
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -150,8 +151,7 @@ class FilterVC: UIViewController, UITextFieldDelegate, GMSAutocompleteFetcherDel
         let sliderView = RangeSliderContainer(
             viewModel: viewModelRange,
             barData: barData,
-            range: range
-        )
+            range: range)
         
         let hostingController = UIHostingController(rootView: sliderView)
         addChild(hostingController)
@@ -167,25 +167,25 @@ class FilterVC: UIViewController, UITextFieldDelegate, GMSAutocompleteFetcherDel
         ])
         
         hostingController.didMove(toParent: self)
-        
+        bindVC()
         viewModel.apiforMinMaxRange()
         
         viewModelRange.$minValue
             .receive(on: DispatchQueue.main)
             .sink { [weak self] min in
-                self?.txt_min.text = "\(Int(min))"
+                self?.txt_min.text = "$\(Int(min))"
             }
             .store(in: &cancellables)
         
         viewModelRange.$maxValue
             .receive(on: DispatchQueue.main)
             .sink { [weak self] max in
-                self?.txt_max.text = "\(Int(max))"
+                self?.txt_max.text = "$\(Int(max))"
             }
             .store(in: &cancellables)
         view_Graph.backgroundColor = .red
         //        rangeSeeker.delegate = self
-        bindVC()
+      
         let timeValue = FilterSavedData.shared.timess
         print("Timess Value: \(timeValue)")
         if timeValue != 0 {
@@ -664,8 +664,8 @@ class FilterVC: UIViewController, UITextFieldDelegate, GMSAutocompleteFetcherDel
             self.rangeSeeker.selectedMaxValue = 100
             self.txt_min.text = "$0"
             self.txt_max.text = "$100"
-            
-            self.rangeSeeker.layoutSubviews()
+            self.rangeSeeker.setNeedsLayout()
+            self.rangeSeeker.setNeedsDisplay()
         }
         
         self.arrSelectedActivity.removeAll()
@@ -724,11 +724,8 @@ class FilterVC: UIViewController, UITextFieldDelegate, GMSAutocompleteFetcherDel
             firstButton.backgroundColor = .white
             prevSelBathroomButton = firstButton
         }
-        
-        
-        
+         
     }
-    
     
     @IBAction func buttonTapped(_ sender: UIButton) {
         // Set the previous button's background to clear
@@ -849,8 +846,6 @@ class FilterVC: UIViewController, UITextFieldDelegate, GMSAutocompleteFetcherDel
         print(selectedAmenties,"selectedAmenties")
         
         viewModel.amenities = selectedAmenties
-        
-        
         
         viewModel.language = self.arrSelectedLanguage
         
@@ -1526,8 +1521,14 @@ extension FilterVC {
                     // let to = response.data?.token
                     print(response.data?.minimumPrice ?? "")
                     print(response.data?.maximumPrice ?? "")
-                    self.viewModelRange.minValue = Double(response.data?.minimumPrice ?? "0") ?? 0.0
-                    self.viewModelRange.maxValue = 90.00// Double(response.data?.maximumPrice ?? "0") ?? 0.0
+                    let minValue = Double(response.data?.minimumPrice ?? "0") ?? 0.0
+                    let maxValue = Double(response.data?.maximumPrice ?? "0") ?? 0.0
+                    self.txt_min.text = "$\(Int(minValue))"
+                    self.minimumprice = "\(Int(minValue))"
+                    self.txt_max.text = "$\(Int(maxValue))"
+                    self.maximumprice = "\(Int(maxValue))"
+                   // self.viewModelRange.minValue = Double(response.data?.minimumPrice ?? "0") ?? 0.0
+                   // self.viewModelRange.maxValue =  Double(response.data?.maximumPrice ?? "0") ?? 0.0
                 })
             }.store(in: &cancellables)
     }

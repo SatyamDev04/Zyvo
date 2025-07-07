@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -37,7 +37,7 @@
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="VgV-6s-UrX">
-                        <rect key="frame" x="10" y="270" width="315" height="87"/>
+                        <rect key="frame" x="10" y="270" width="315" height="95"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ht-fv-nq0">
                                 <rect key="frame" x="0.0" y="0.0" width="315" height="25.333333333333332"/>
@@ -46,7 +46,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eqr-6l-Br8">
-                                <rect key="frame" x="0.0" y="25.333333333333311" width="315" height="61.666666666666657"/>
+                                <rect key="frame" x="0.0" y="25.333333333333314" width="315" height="69.666666666666671"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -58,7 +58,7 @@
                     <constraint firstAttribute="trailing" secondItem="7cP-xV-tBG" secondAttribute="trailing" constant="10" id="1f4-rF-QqH"/>
                     <constraint firstItem="VgV-6s-UrX" firstAttribute="top" secondItem="7cP-xV-tBG" secondAttribute="bottom" constant="10" id="67a-DU-YSx"/>
                     <constraint firstItem="7cP-xV-tBG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Jhb-2D-4DW"/>
-                    <constraint firstAttribute="bottom" secondItem="VgV-6s-UrX" secondAttribute="bottom" constant="10" id="Pft-vA-zPA"/>
+                    <constraint firstAttribute="bottom" secondItem="VgV-6s-UrX" secondAttribute="bottom" constant="2" id="Pft-vA-zPA"/>
                     <constraint firstItem="VgV-6s-UrX" firstAttribute="leading" secondItem="7cP-xV-tBG" secondAttribute="leading" id="X3e-HN-pnX"/>
                     <constraint firstItem="7cP-xV-tBG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="izP-81-zO9"/>
                     <constraint firstItem="VgV-6s-UrX" firstAttribute="trailing" secondItem="7cP-xV-tBG" secondAttribute="trailing" id="yYD-oB-kEX"/>

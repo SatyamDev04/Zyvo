@@ -408,18 +408,18 @@ class CheckOutConfirmationVC: UIViewController,UITextViewDelegate {
         
         view_RulesParking.layer.cornerRadius = 10
         view_RulesParking.layer.borderWidth = 1.0
-        view_RulesParking.layer.borderColor = UIColor.lightGray.cgColor
+        view_RulesParking.layer.borderColor = UIColor.init(red: 228/255, green: 228/255, blue: 228/255, alpha: 1).cgColor
         
         view_HostRules.layer.cornerRadius = 10
         view_HostRules.layer.borderWidth = 1.0
-        view_HostRules.layer.borderColor = UIColor.lightGray.cgColor
+        view_HostRules.layer.borderColor = UIColor.init(red: 228/255, green: 228/255, blue: 228/255, alpha: 1).cgColor
         
         let nib1 = UINib(nibName: "AddMoreTimeCell", bundle: nil)
         collecV_BankingDetails?.register(nib1, forCellWithReuseIdentifier: "AddMoreTimeCell")
         
-        view_Details.layer.cornerRadius = 30
-        view_Details.layer.borderWidth = 0.5
-        view_Details.layer.borderColor = UIColor.lightGray.cgColor
+        view_Details.layer.cornerRadius = 20
+        view_Details.layer.borderWidth = 1.5
+        view_Details.layer.borderColor = UIColor.init(red: 228/255, green: 228/255, blue: 228/255, alpha: 1).cgColor
         
         btnShowMessageHost.layer.cornerRadius = 10
         btnShowMessageHost.layer.borderWidth = 1

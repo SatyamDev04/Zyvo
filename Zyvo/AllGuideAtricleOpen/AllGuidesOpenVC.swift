@@ -99,7 +99,25 @@ extension AllGuidesOpenVC {
                         self.lbl_Category.text = self.getGuidesDetailsArr?.category ?? ""
                         self.lbl_time.text = "\(self.getGuidesDetailsArr?.timeRequired ?? "") read"
                         
-                        self.lbl_Desc.text = (self.getGuidesDetailsArr?.description ?? "").decodedHTML
+                        //self.lbl_Desc.text = (self.getGuidesDetailsArr?.description ?? "").decodedHTML
+                        
+                        let rawText = (self.getGuidesDetailsArr?.description ?? "").decodedHTML
+
+                        let paragraphStyle = NSMutableParagraphStyle()
+                        paragraphStyle.lineSpacing = 6  // Adjust line spacing as needed
+                        paragraphStyle.alignment = .justified  // Or use .left, .center, etc.
+
+                        let attributedString = NSAttributedString(
+                            string: rawText,
+                            attributes: [
+                                .font: UIFont.systemFont(ofSize: 15.5), // Customize font if needed
+                                .paragraphStyle: paragraphStyle,
+                                .foregroundColor: UIColor.label // Optional: customize color
+                            ]
+                        )
+
+                        self.lbl_Desc.attributedText = attributedString
+                        
                         self.lbl_AutherName.text = self.getGuidesDetailsArr?.authorName ?? ""
                         var image = self.getGuidesDetailsArr?.coverImage ?? ""
                         let imgURL = AppURL.imageURL + image
@@ -131,7 +149,24 @@ extension AllGuidesOpenVC {
                         self.lbl_Category.text = self.getArticleDetailsArr?.category ?? ""
                         self.lbl_title.text = self.getArticleDetailsArr?.title ?? ""
                         self.lbl_time.text = "\(self.getArticleDetailsArr?.timeRequired ?? "") read"
-                        self.lbl_Desc.text = (self.getArticleDetailsArr?.description ?? "").decodedHTML
+                       // self.lbl_Desc.text = (self.getArticleDetailsArr?.description ?? "").decodedHTML
+                        
+                        let rawText = (self.getArticleDetailsArr?.description ?? "").decodedHTML
+
+                        let paragraphStyle = NSMutableParagraphStyle()
+                        paragraphStyle.lineSpacing = 6  // Adjust line spacing as needed
+                        paragraphStyle.alignment = .justified  // Or use .left, .center, etc.
+
+                        let attributedString = NSAttributedString(
+                            string: rawText,
+                            attributes: [
+                                .font: UIFont.systemFont(ofSize: 15.5), // Customize font if needed
+                                .paragraphStyle: paragraphStyle,
+                                .foregroundColor: UIColor.label // Optional: customize color
+                            ]
+                        )
+
+                        self.lbl_Desc.attributedText = attributedString
                         self.lbl_AutherName.text = self.getArticleDetailsArr?.authorName ?? ""
                         var image = self.getArticleDetailsArr?.coverImage ?? ""
                         let imgURL = AppURL.imageURL + image

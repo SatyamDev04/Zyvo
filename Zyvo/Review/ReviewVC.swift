@@ -265,15 +265,15 @@ class ReviewVC: UIViewController,UITextViewDelegate {
         
         view_RulesParking.layer.cornerRadius = 10
         view_RulesParking.layer.borderWidth = 1.0
-        view_RulesParking.layer.borderColor = UIColor.lightGray.cgColor
+        view_RulesParking.layer.borderColor = UIColor.init(red: 228/255, green: 228/255, blue: 228/255, alpha: 1).cgColor
         
         view_HostRules.layer.cornerRadius = 10
         view_HostRules.layer.borderWidth = 1.0
-        view_HostRules.layer.borderColor = UIColor.lightGray.cgColor
+        view_HostRules.layer.borderColor = UIColor.init(red: 228/255, green: 228/255, blue: 228/255, alpha: 1).cgColor
         
         view_Parking.layer.cornerRadius = 15
         view_Parking.layer.borderWidth = 1.0
-        view_Parking.layer.borderColor = UIColor.lightGray.cgColor
+        view_Parking.layer.borderColor = UIColor.init(red: 228/255, green: 228/255, blue: 228/255, alpha: 1).cgColor
         
         view_wifi.layer.cornerRadius = 15
         view_wifi.layer.borderWidth = 1
@@ -317,9 +317,9 @@ class ReviewVC: UIViewController,UITextViewDelegate {
         view_BookedDate.layer.borderWidth = 1.5
         view_BookedDate.layer.borderColor = UIColor.init(red: 228/255, green: 228/255, blue: 228/255, alpha: 1).cgColor
         
-        view_Details.layer.cornerRadius = 30
-        view_Details.layer.borderWidth = 0.5
-        view_Details.layer.borderColor = UIColor.lightGray.cgColor
+        view_Details.layer.cornerRadius = 20
+        view_Details.layer.borderWidth = 1.5
+        view_Details.layer.borderColor = UIColor.init(red: 228/255, green: 228/255, blue: 228/255, alpha: 1).cgColor
         
         btnMessageHost.layer.cornerRadius = 10
         btnMessageHost.layer.borderWidth = 1
@@ -620,7 +620,12 @@ extension ReviewVC :UITableViewDelegate,UITableViewDataSource {
         
         cell.lbl_name.text = data?.reviewerName ?? ""
         cell.lbl_date.text = data?.reviewDate ?? ""
-        cell.lbl_desc.text = data?.reviewMessage ?? ""
+        let msg = data?.reviewMessage ?? ""
+        if msg != "" {
+            cell.lbl_desc.text = msg
+        } else {
+            cell.lbl_desc.text = " "
+        }
         let doubleValue = Double(data?.reviewRating ?? "") ?? 0.0
         cell.viewRating.rating = doubleValue
         let image = data?.profileImage ?? ""
@@ -878,8 +883,10 @@ extension ReviewVC {
                     print(latitude ?? "", latitude ?? "", "latString, lonString") // Debugging log
                     
                     let marker = GMSMarker()
+                    let zoomLevel: Float = 18.0
+                    marker.icon = UIImage(named: "path0 8")
                     marker.position = CLLocationCoordinate2D(latitude: latitude ?? 0.0, longitude: longitude ?? 0.0)
-                    let centeredCamera = GMSCameraPosition.camera(withLatitude: latitude ?? 0.0, longitude: longitude ?? 0.0, zoom: self.mapv1.camera.zoom)
+                    let centeredCamera = GMSCameraPosition.camera(withLatitude: latitude ?? 0.0, longitude: longitude ?? 0.0, zoom: zoomLevel)
                     self.mapv1.animate(to: centeredCamera)
                     marker.map = self.mapv1
                     

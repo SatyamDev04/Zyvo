@@ -18,7 +18,7 @@ class CellHost: UICollectionViewCell {
         
         mainV.layer.cornerRadius = 15
         mainV.layer.borderWidth = 1
-        mainV.layer.borderColor = UIColor.lightGray.cgColor
+        mainV.layer.borderColor =  UIColor.init(red: 228/255, green: 228/255, blue: 228/255, alpha: 1).cgColor
         
     }
 

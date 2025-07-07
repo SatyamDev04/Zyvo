@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -30,7 +30,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="281" height="386"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img1" translatesAutoresizingMaskIntoConstraints="NO" id="ydU-Ya-8Np">
-                                <rect key="frame" x="10" y="0.0" width="261" height="180"/>
+                                <rect key="frame" x="2" y="0.0" width="277" height="180"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="180" id="Ons-cz-LcC"/>
                                 </constraints>
@@ -48,7 +48,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="19.670000000000002" id="bFW-gt-cMy"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -69,10 +69,10 @@
                         <constraints>
                             <constraint firstItem="ydU-Ya-8Np" firstAttribute="top" secondItem="qOQ-ls-G79" secondAttribute="top" id="1WF-FY-gyJ"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="vWU-y7-CWU" secondAttribute="bottom" constant="5" id="3nx-zx-oGe"/>
-                            <constraint firstAttribute="trailing" secondItem="ydU-Ya-8Np" secondAttribute="trailing" constant="10" id="Muw-er-rFC"/>
+                            <constraint firstAttribute="trailing" secondItem="ydU-Ya-8Np" secondAttribute="trailing" constant="2" id="Muw-er-rFC"/>
                             <constraint firstAttribute="trailing" secondItem="vWU-y7-CWU" secondAttribute="trailing" constant="10" id="NmS-ez-sOs"/>
                             <constraint firstItem="vWU-y7-CWU" firstAttribute="top" secondItem="ydU-Ya-8Np" secondAttribute="bottom" constant="10" id="RSh-JW-Hqe"/>
-                            <constraint firstItem="ydU-Ya-8Np" firstAttribute="leading" secondItem="qOQ-ls-G79" secondAttribute="leading" constant="10" id="ZzD-FK-fgU"/>
+                            <constraint firstItem="ydU-Ya-8Np" firstAttribute="leading" secondItem="qOQ-ls-G79" secondAttribute="leading" constant="2" id="ZzD-FK-fgU"/>
                             <constraint firstItem="vWU-y7-CWU" firstAttribute="leading" secondItem="qOQ-ls-G79" secondAttribute="leading" constant="10" id="sK6-nr-uTG"/>
                         </constraints>
                     </view>

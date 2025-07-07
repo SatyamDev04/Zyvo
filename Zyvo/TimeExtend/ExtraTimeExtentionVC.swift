@@ -13,6 +13,7 @@ class ExtraTimeExtentionVC: UIViewController {
     var isCardOpen = "no"
     var isParkingRulesOpen = "no"
     var isHostTingRulesOpen = "no"
+    var showRefundPolicy = "no"
     @IBOutlet weak var view_ParkingDesc: UIView!
     @IBOutlet weak var viewHold_MessageHost: UIView!
     @IBOutlet weak var view_MessageHost: UIView!
@@ -26,6 +27,7 @@ class ExtraTimeExtentionVC: UIViewController {
     @IBOutlet weak var view_HostRules: UIView!
     @IBOutlet weak var tblV: UITableView!
     
+    @IBOutlet weak var refundPolicyLbl: UILabel!
     @IBOutlet weak var tblVH_Const: NSLayoutConstraint!
     
     @IBOutlet weak var stackV_MessageHost: UIStackView!
@@ -357,15 +359,15 @@ class ExtraTimeExtentionVC: UIViewController {
         
         view_RulesParking.layer.cornerRadius = 10
         view_RulesParking.layer.borderWidth = 1.0
-        view_RulesParking.layer.borderColor = UIColor.lightGray.cgColor
+        view_RulesParking.layer.borderColor = UIColor.init(red: 228/255, green: 228/255, blue: 228/255, alpha: 1).cgColor
         
         view_HostRules.layer.cornerRadius = 10
         view_HostRules.layer.borderWidth = 1.0
-        view_HostRules.layer.borderColor = UIColor.lightGray.cgColor
+        view_HostRules.layer.borderColor = UIColor.init(red: 228/255, green: 228/255, blue: 228/255, alpha: 1).cgColor
         
-        view_Details.layer.cornerRadius = 30
-        view_Details.layer.borderWidth = 0.5
-        view_Details.layer.borderColor = UIColor.lightGray.cgColor
+        view_Details.layer.cornerRadius = 20
+        view_Details.layer.borderWidth = 1.5
+        view_Details.layer.borderColor = UIColor.init(red: 228/255, green: 228/255, blue: 228/255, alpha: 1).cgColor
         
         btnShowMessageHost.layer.cornerRadius = 10
         btnShowMessageHost.layer.borderWidth = 1
@@ -525,6 +527,18 @@ class ExtraTimeExtentionVC: UIViewController {
         // Step 2: Final Price after Tax
         let finalPrice = (totalPrice + taxAmount).rounded(toPlaces: 2)
         return (taxAmount, finalPrice)
+    }
+    
+    @IBAction func showMoreRefundPolicyBtn(_ sender: UIButton){
+        if showRefundPolicy == "no"{
+            self.showRefundPolicy = "yes"
+            sender.setTitle("Read less", for: .normal)
+            self.refundPolicyLbl.text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever the industry's standard dummy .Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever the industry's standard dummy .Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        }else{
+            self.showRefundPolicy = "no"
+            sender.setTitle("Read more", for: .normal)
+            self.refundPolicyLbl.text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever the industry's standard dummy."
+        }
     }
     
     @IBAction func btnHours_Tap(_ sender: UIButton) {

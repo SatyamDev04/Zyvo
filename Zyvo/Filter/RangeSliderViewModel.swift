@@ -12,3 +12,5 @@ class RangeSliderViewModel: ObservableObject {
     @Published var minValue: Double = 0
     @Published var maxValue: Double = 100
 }
+
+

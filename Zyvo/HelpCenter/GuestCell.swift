@@ -17,7 +17,7 @@ class GuestCell: UICollectionViewCell {
         
         // Initialization code
         lbl_Detail.isHidden = true
-        img.layer.cornerRadius = 10
+        img.layer.cornerRadius = 20
 
     }
 

@@ -15,6 +15,10 @@ import SDWebImage
 
 class LocationVC: UIViewController, FSCalendarDataSource, FSCalendarDelegate, CircularSeekBarDelegate,GMSMapViewDelegate,UIPopoverPresentationControllerDelegate{
     
+    @IBOutlet weak var lbl_IncludedYourbooking: UILabel!
+    @IBOutlet weak var lbl_AddessLocation: UILabel!
+    @IBOutlet weak var lbl_AddOnsHeadings: UILabel!
+    @IBOutlet weak var lbl_MessageAddonsBelow: UILabel!
     @IBOutlet weak var btnShowMoreAddOns: UIButton!
     @IBOutlet weak var btnReadMore_AboutSpace: UIButton!
     @IBOutlet weak var view_BtnReadAboutSpace: UIView!
@@ -179,8 +183,11 @@ class LocationVC: UIViewController, FSCalendarDataSource, FSCalendarDelegate, Ci
     let fullText = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+    
+        self.lbl_IncludedYourbooking.font = UIFont(name: "Poppins-SemiBold", size: 18)!
+        self.lbl_AddOnsHeadings.font = UIFont(name: "Poppins-SemiBold", size: 18)!
+        self.lbl_AddessLocation.font = UIFont(name: "Poppins-SemiBold", size: 18)!
+        self.lbl_MessageAddonsBelow.font = UIFont(name: "Poppins-Medium", size: 15)!
         self.tblV.estimatedRowHeight = 100
         view_Calendar.appearance.todayColor = nil
         view_Calendar.appearance.titleTodayColor = view_Calendar.appearance.titleDefaultColor
@@ -261,7 +268,7 @@ class LocationVC: UIViewController, FSCalendarDataSource, FSCalendarDelegate, Ci
         
         stack_Discount.layer.cornerRadius = 10
         stack_Discount.layer.borderWidth = 1.0
-        stack_Discount.layer.borderColor = UIColor.lightGray.cgColor
+        stack_Discount.layer.borderColor = UIColor.init(red: 228/255, green: 228/255, blue: 228/255, alpha: 1).cgColor
         
         btnMsgHost.layer.cornerRadius =  10
         
@@ -279,19 +286,19 @@ class LocationVC: UIViewController, FSCalendarDataSource, FSCalendarDelegate, Ci
         view_Calendar.isHidden = true
         view_time1.layer.cornerRadius = view_time1.layer.frame.height / 2
         view_time1.layer.borderWidth = 1.0
-        view_time1.layer.borderColor = UIColor.lightGray.cgColor
+        view_time1.layer.borderColor =  UIColor.init(red: 228/255, green: 228/255, blue: 228/255, alpha: 1).cgColor
         
         view_time2.layer.cornerRadius = view_time2.layer.frame.height / 2
         view_time2.layer.borderWidth = 1.0
-        view_time2.layer.borderColor = UIColor.lightGray.cgColor
+        view_time2.layer.borderColor =  UIColor.init(red: 228/255, green: 228/255, blue: 228/255, alpha: 1).cgColor
         
         view_Hour.layer.cornerRadius = view_Hour.layer.frame.height / 2
         view_Hour.layer.borderWidth = 1.0
-        view_Hour.layer.borderColor = UIColor.lightGray.cgColor
+        view_Hour.layer.borderColor =  UIColor.init(red: 228/255, green: 228/255, blue: 228/255, alpha: 1).cgColor
         
         view_Price.layer.cornerRadius = view_Price.layer.frame.height / 2
         view_Price.layer.borderWidth = 1.0
-        view_Price.layer.borderColor = UIColor.lightGray.cgColor
+        view_Price.layer.borderColor =  UIColor.init(red: 228/255, green: 228/255, blue: 228/255, alpha: 1).cgColor
         
         view_holdCalendarWatch.layer.cornerRadius = 10
         view_holdCalendarWatch.layer.borderWidth = 2.0
@@ -299,15 +306,15 @@ class LocationVC: UIViewController, FSCalendarDataSource, FSCalendarDelegate, Ci
         
         btnshowMore.layer.cornerRadius = btnshowMore.layer.frame.height / 2
         btnshowMore.layer.borderWidth = 1.0
-        btnshowMore.layer.borderColor = UIColor.lightGray.cgColor
+        btnshowMore.layer.borderColor = UIColor.init(red: 228/255, green: 228/255, blue: 228/255, alpha: 1).cgColor
         
         view_RulesParking.layer.cornerRadius = 10
         view_RulesParking.layer.borderWidth = 1.0
-        view_RulesParking.layer.borderColor = UIColor.lightGray.cgColor
+        view_RulesParking.layer.borderColor = UIColor.init(red: 228/255, green: 228/255, blue: 228/255, alpha: 1).cgColor
         
         view_HostRules.layer.cornerRadius = 10
         view_HostRules.layer.borderWidth = 1.0
-        view_HostRules.layer.borderColor = UIColor.lightGray.cgColor
+        view_HostRules.layer.borderColor = UIColor.init(red: 228/255, green: 228/255, blue: 228/255, alpha: 1).cgColor
         
         
         let nib = UINib(nibName: "CellHost", bundle: nil)
@@ -1135,7 +1142,7 @@ extension LocationVC: UICollectionViewDelegate, UICollectionViewDataSource, UICo
             if arrSelectedArr.contains(indexPath.row){
                 cell.mainV.layer.borderColor = UIColor(red: 74/255, green: 234/255, blue: 177/255, alpha: 1).cgColor
             }else{
-                cell.mainV.layer.borderColor = UIColor.init(red: 177/255, green: 177/255, blue: 177/255, alpha: 1).cgColor
+                cell.mainV.layer.borderColor = UIColor.init(red: 228/255, green: 228/255, blue: 228/255, alpha: 1).cgColor
             }
             return cell
         } else  if collectionView == collecV_IncludedServices {
@@ -1158,17 +1165,12 @@ extension LocationVC: UICollectionViewDelegate, UICollectionViewDataSource, UICo
             if arrSelectedArr.contains(indexPath.row){
                 if let index = arrSelectedArr.firstIndex(of: indexPath.row) {
                     arrSelectedArr.remove(at: index)
-                    
                 }
             }else{
-                
                 self.arrSelectedArr.append(indexPath.row)
             }
-            
             updateTotalPrice(index : indexPath.row)
-            
             self.collecV_Host.reloadData()
-            
         }
     }
     
@@ -1281,7 +1283,13 @@ extension LocationVC :UITableViewDelegate,UITableViewDataSource {
         }
         cell.lbl_name.text = data?.reviewerName ?? ""
         cell.lbl_date.text = data?.reviewDate ?? ""
-        cell.lbl_desc.text = data?.reviewMessage ?? ""
+        let msg = data?.reviewMessage ?? ""
+        if msg != "" {
+            cell.lbl_desc.text = data?.reviewMessage ?? ""
+        } else {
+            cell.lbl_desc.text = " "
+        }
+        
         let image = data?.profileImage ?? ""
         let imgURL = AppURL.imageURL + image
         cell.img.loadImage(from:imgURL,placeholder: UIImage(named: "user"))
@@ -1509,8 +1517,10 @@ extension LocationVC {
                     let longitude = Double(self.getPropertyDetails?.longitude ?? "")
                     
                     let marker = GMSMarker()
+                    let zoomLevel: Float = 18.0
+                    marker.icon = UIImage(named: "path0 8")
                     marker.position = CLLocationCoordinate2D(latitude: latitude ?? 0.0, longitude: longitude ?? 0.0)
-                    let centeredCamera = GMSCameraPosition.camera(withLatitude: latitude ?? 0.0, longitude: longitude ?? 0.0, zoom: self.mapv1.camera.zoom)
+                    let centeredCamera = GMSCameraPosition.camera(withLatitude: latitude ?? 0.0, longitude: longitude ?? 0.0, zoom: zoomLevel)
                     self.mapv1.animate(to: centeredCamera)
                     marker.map = self.mapv1
                 })
@@ -1624,13 +1634,13 @@ extension LocationVC {
                         self.zyvoServiceFee = (totalPrice * zyvoFeePercentage) / 100.0
                         let discountPercent = Double(self.getPropertyDetails?.bulkDiscountRate ?? "") //10.0   // 10% discount
                         self.DiscountPercentage = discountPercent
-                        let taxPercent = Double(self.getPropertyDetails?.tax ?? "")
+                        let taxPercent = Double(self.getPropertyDetails?.tax ?? 0)
                         self.taxPercentage = taxPercent// 5% tax
                         print(self.bookingHours ?? 0)
                         print(minBookhours ?? 0)
                         if (self.bookingHours ?? 0) > (minBookhours ?? 0)   {
                             
-                            let result = self.calculateFinalPriceWithDiscount(totalPrice: totalPrice ?? 0.0, discountPercent: discountPercent ?? 0.0, taxPercent: taxPercent ?? 0.0)
+                            let result = self.calculateFinalPriceWithDiscount(totalPrice: totalPrice, discountPercent: discountPercent ?? 0.0, taxPercent: taxPercent)
                             print("================================WithDiscount====================================")
                             // Printing the Result
                             print("Total Price: \(result.totalPrice)")

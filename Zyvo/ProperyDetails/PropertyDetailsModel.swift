@@ -14,7 +14,8 @@ struct PropertyDetailsModel: Codable {
     let address, hostProfileImage, parkingRules: String?
     let activities: [String]?
     let cancellationTime: Int?
-    let reviewsTotalRating, tax, propertyDescription, cleaningFee: String?
+    let reviewsTotalRating, propertyDescription, cleaningFee: String?
+    let tax: Int?
     let isStarHost: Bool?
     let bulkDiscountRate: String?
     let addOns: [AddOn]?

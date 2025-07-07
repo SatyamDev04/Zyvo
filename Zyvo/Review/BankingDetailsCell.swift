@@ -17,7 +17,7 @@ class BankingDetailsCell: UICollectionViewCell {
         // Initialization code
         mainV.layer.cornerRadius = mainV.layer.frame.height / 2
         mainV.layer.borderWidth = 1
-        mainV.layer.borderColor = UIColor.lightGray.cgColor
+        mainV.layer.borderColor =  UIColor.init(red: 228/255, green: 228/255, blue: 228/255, alpha: 1).cgColor
     }
 
 }

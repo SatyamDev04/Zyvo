@@ -19,6 +19,8 @@ class DiscoverVC: UIViewController,LocationPickerDelegate {
     @IBOutlet weak var lbl_minutes: UILabel!
     @IBOutlet weak var lbl_hours: UILabel!
     
+    @IBOutlet weak var btnShowMap: UIButton!
+    @IBOutlet weak var btnShowMapH_Constant: NSLayoutConstraint!
     @IBOutlet weak var lbl_time: UILabel!
     @IBOutlet weak var lbl_Where: UILabel!
     @IBOutlet weak var lbl_Activity: UILabel!
@@ -1045,17 +1047,17 @@ extension DiscoverVC {
                                             
                                             self.startTimer(hours: difference.hour ?? 0, minutes: difference.minute ?? 0, seconds: difference.second ?? 0)
                                             UserDetail.shared.setisTimeExtend("No")
-                                            
-                                            
+                                            self.btnShowMap.isHidden = false
+                                            self.btnShowMapH_Constant.constant = 200
                                             self.view_RemainingTime.isHidden = false
                                             self.stackV_TimeLeft.isHidden = false
                                             CurrentDateTimer.shared.stopTimer()
                                             
                                         } else {
-                                            
+                                            self.btnShowMap.isHidden = false
+                                            self.btnShowMapH_Constant.constant = 20
                                             self.view_RemainingTime.isHidden = true
                                             self.stackV_TimeLeft.isHidden = true
-                                            
                                             
                                             print("Booking time has already ended.")
                                             
