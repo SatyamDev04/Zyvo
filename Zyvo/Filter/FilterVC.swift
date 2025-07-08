@@ -1196,9 +1196,6 @@ class FilterVC: UIViewController, UITextFieldDelegate, GMSAutocompleteFetcherDel
 }
 extension FilterVC : UITableViewDelegate,UITableViewDataSource {
     
-    //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    //        return UITableView.automaticDimension
-    //    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return  predictions.count//arrOtherActivityTitle.count
     }
@@ -1252,7 +1249,6 @@ extension FilterVC : UICollectionViewDelegate,UICollectionViewDataSource {
         }   else {
             return arrOtherActivityTitle.count
         }
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
